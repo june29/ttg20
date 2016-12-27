@@ -1,4 +1,18 @@
 $(function() {
+  function filter() {
+    $('#result li').removeClass('hidden');
+
+    var query = $('#name').val();
+    console.log(query);
+    var regex = new RegExp(query);
+
+    $('#result li').each(function() {
+      if (!$(this).text().match(regex)) {
+        $(this).addClass('hidden');
+      }
+    })
+  }
+
   $.getJSON('./numbers.json?' + (new Date()).getTime(), function(numbers) {
     var array = new Array();
 
@@ -22,4 +36,8 @@ $(function() {
       }
     }
   });
+
+  $('#name').on('keyup',   filter);
+  $('#name').on('keydown', filter);
+  $('#name').on('change',  filter);
 });
