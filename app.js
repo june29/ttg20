@@ -1,5 +1,5 @@
 $(function() {
-  $.getJSON('./numbers.json', function(numbers) {
+  $.getJSON('./numbers.json?' + (new Date()).getTime(), function(numbers) {
     var array = new Array();
 
     $.each(numbers, function(name, number) {
