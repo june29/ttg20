@@ -3,7 +3,6 @@ $(function() {
     $('#result li').removeClass('hidden');
 
     var query = $('#name').val();
-    console.log(query);
     var regex = new RegExp(query);
 
     $('#result li').each(function() {
